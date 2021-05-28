@@ -1,0 +1,153 @@
+$red-med: rgb(207, 43, 43)
+$red-hard: rgb(54, 0, 0)
+
+body
+    background: rgb(252, 255, 214)
+    margin: 0
+
+main
+    max-width: 1200px
+    margin: 0 auto
+    display: grid
+    column-gap: 10px
+    row-gap: 10px
+    grid-template-columns: (4, 1fr)
+    grid-template-rows: auto
+    grid-template-areas: "main-titulo main-titulo main-titulo main-titulo" "origem origem origem origem" "quote quote quote quote" "principal principal principal principal__outros" "contato contato contato contato"
+
+header
+    position: sticky
+    top: 0
+
+    nav
+        background-color: $red-med
+        display: flex
+        justify-content: space-evenly
+        padding: 20px
+        a
+            text-decoration: none
+            color: white
+
+#main-titulo
+    grid-area: main-titulo
+    text-align: center
+
+#origem
+    grid-area: origem
+    display: flex
+
+    #origem__bolo
+        max-width: 300px
+        height: auto
+
+    #origem__text-cnt
+        background-color: white
+        padding: 50px
+
+#quote
+    grid-area: quote
+    background-color: $red-hard
+    text-align: center
+    color: white
+    padding: 20px 0
+
+    #quote__cite
+        font-size: 1.5em
+
+#principal
+    grid-area: principal
+    background-color: white
+    padding: 20px
+
+    #principal__receita
+        display: grid
+        grid-template-columns: (3, 1fr)
+        grid-template-rows: auto
+        column-gap:10px
+        row-gap: 10px
+        grid-template-areas: "bolo1 bolo2 bolo3"
+
+        .principal__bolos
+            border-radius: 10px
+            background-color: white
+            padding: 10px
+
+            .principal__img
+                width: auto
+                max-height: 200px
+
+        #principal__bolo1
+            grid-area: bolo1
+        #principal__bolo2
+            grid-area: bolo2
+            background: rgb(252, 255, 214)
+        #principal__bolo3
+            grid-area: bolo3
+            background: rgb(252, 255, 214)
+
+#principal__outros
+    grid-area: principal__outros
+    background-color: white
+    padding: 20px
+
+
+#contato
+    grid-area: contato
+    text-align: center
+    background-color: white
+    padding: 20px
+
+
+    input
+        font-size: 1.25em
+
+    label
+        font-size: 1.10em
+
+    button
+        font-size: 1em
+    .enviar
+        background-color: greenyellow
+        margin: 10px 0
+    .cancelar
+        background-color: #
+        color: white
+
+footer
+    background-color: #3e3e3e
+    color: lightgrey
+    display: flex
+    flex-flow: row nowrap
+    justify-content: space-between
+    padding: 10px 11%
+    align-items: center
+
+    #footer__social-medias
+        .footer__social-medias__icons
+            max-width: 40px
+            height: auto
+
+@media (max-width: 480px)
+    main
+        grid-template-columns: 100%
+        grid-template-areas: "main-titulo" "origem" "quote" "principal" "principal__outros" "contato"
+
+    #origem
+        flex-flow: column wrap
+        #origem__bolo
+            max-width: 350px
+            margin: 0 auto
+
+        #origem__text-cnt
+            padding: 20px
+
+    #principal
+        #principal__receita
+            grid-template-columns: 100%
+            grid-template-areas: "bolo1" "bolo2" "bolo3"
+
+            #principal__bolo1, #principal__bolo2, #principal__bolo3
+                display: flex
+
+        #footer
+            flex-flow: column wrap
